@@ -2,7 +2,6 @@
 
 import argparse
 import datetime
-import signal
 import time
 import csv
 import sys
