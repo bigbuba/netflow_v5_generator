@@ -46,7 +46,8 @@ def main():
         DEBUG_LVL = 0
 
     count = 0
-    start_flow=(int((datetime.utcnow() - datetime(2020, 1, 1)).total_seconds()*1000) - flow_report_time)
+    midnight = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    start_flow=(int((datetime.utcnow() - midnight).total_seconds()*1000) - flow_report_time)
 
     with open(CSV_FNAME) as f:
         reader = csv.reader(f,delimiter=',')
@@ -54,7 +55,7 @@ def main():
         for row in reader:
             if row:
                 now_utc = datetime.utcnow()
-                uptime_sec = int((now_utc - datetime(2020, 1, 1)).total_seconds())
+                uptime_sec = int((now_utc - midnight).total_seconds()) * 1000
                 now_sec = int((now_utc - datetime(1970, 1, 1)).total_seconds())
 
                 nfhdr = NetflowHeaderV5(count=1, unixSecs=now_sec, sysUptime = uptime_sec, flowSequence = count )
