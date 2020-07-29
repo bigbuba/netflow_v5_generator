@@ -15,23 +15,26 @@ Requerements:
 Usage:
 python3 NetFlowV5_gen.py
 
-  -c IP, --collector-ip IP
-                        IP address of Netflow collector
-  -p PORT, --collector-port PORT
-                        Flow collector UDP-port
-  -f FILENAME, --file FILENAME
-                        CSV filename for Netflow generation
-  -t REPORT_TIME, --report_time REPORT_TIME
-                        Flow report time (milisec, default: 30000)
-  -d DEBUG, --debug DEBUG
-                        Debug level: 0 = silent, 1 = short format, 2 = full
-                        format
-  -D DELIMITER, --delimiter DELIMITER
-                        CSV-file delimiter (default: comma)
-  -P PAUSE, --pause PAUSE
-                        Pause between sending Netflow packets (milisec,
-                        default: 0)
+-c IP, --collector-ip IP
+IP address of Netflow collector
 
+-p PORT, --collector-port PORT
+Flow collector UDP-port
+                        
+-f FILENAME, --file FILENAME
+CSV filename for Netflow generation
+
+-t REPORT_TIME, --report_time REPORT_TIME
+Flow report time (milisec, default: 30000)
+
+-d DEBUG, --debug DEBUG
+Debug level: 0 = silent, 1 = short format, 2 = full format
+
+-D DELIMITER, --delimiter DELIMITER
+CSV-file delimiter (default: comma)
+
+-P PAUSE, --pause PAUSE
+Pause between sending Netflow packets (milisec, default: 0)
 
 Example:
 python3 NetFlowV5_gen.py -c 192.168.10.11 -p 2055 -f /opt/test.csv -t 30000 -d 1 -D ';' -P 1
